@@ -55,7 +55,7 @@ public class Env {
    */
   public static func clear() {
     self.keys
-      .map { String($0) }
+          .map { $0.reduce("", { $0 + String($1) }) }
       .filter { $0 != nil }
       .forEach{ self.set($0!, nil) }
   }
